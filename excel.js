@@ -1,5 +1,4 @@
-var XLSX = Npm.require('xlsx');
-var XLS = Npm.require('xlsjs');
+var XLSX = Npm.require('xlsx-style');
 
 Excel = function (fileType) {
   if (fileType != 'xlsx' && fileType != 'xls') {
@@ -11,21 +10,11 @@ Excel = function (fileType) {
 };
 
 Excel.prototype.readFile = function (fileName, read_opts) {
-  if (this.fileType === 'xlsx') {
     return XLSX.readFile(fileName, read_opts);
-  }
-  else if (this.fileType == 'xls') {
-    return XLS.readFile(fileName, read_opts);
-  }
 };
 
 Excel.prototype.read = function (file, read_opts) {
-  if (this.fileType === 'xlsx') {
     return XLSX.read(file, read_opts);
-  }
-  else if (this.fileType == 'xls') {
-    return XLS.read(file, read_opts);
-  }
 };
 
 Excel.prototype.createWorkbook = function () {
